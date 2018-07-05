@@ -1,4 +1,4 @@
-package com.xc.util;
+package com.xc.study.util;
 
 import java.io.File;
 

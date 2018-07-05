@@ -1,4 +1,4 @@
-package com.xc.corejava.relex;
+package com.xc.study.corejava.relex;
 
 public class Student {
 
@@ -30,6 +30,7 @@ public class Student {
 		this.age = age;
 	}
 
+	@SuppressWarnings("unused")
 	private Student(String name, int sex) {
 		this(name);
 		this.sex = sex;

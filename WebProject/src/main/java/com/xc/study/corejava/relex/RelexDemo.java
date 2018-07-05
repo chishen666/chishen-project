@@ -1,4 +1,4 @@
-package com.xc.corejava.relex;
+package com.xc.study.corejava.relex;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
