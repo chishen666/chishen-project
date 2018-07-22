@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- srping依赖注入测试 -->
+	<bean id="testController" class="com.xc.study.framework.spring.di.controller.TestController">
+		<property name="testService" ref="testService" />
+	</bean>
+
+	<bean id="testService" class="com.xc.study.framework.spring.di.service.impl.TestServiceImpl">
+		<property name="testDao" ref="testDao" />
+	</bean>
+
+	<bean id="testDao" class="com.xc.study.framework.spring.di.dao.impl.TestDaoImpl" />
+</beans>
