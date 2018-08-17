@@ -1,7 +1,7 @@
-package com.xc.study.framework.spring.inaction.service.impl;
+package com.xc.study.framework.spring.inaction.beanwired.service.impl;
 
-import com.xc.study.framework.spring.inaction.service.KnightService;
-import com.xc.study.framework.spring.inaction.service.RequestService;
+import com.xc.study.framework.spring.inaction.beanwired.service.KnightService;
+import com.xc.study.framework.spring.inaction.beanwired.service.RequestService;
 
 public class BraveKnightServiceImpl implements KnightService {
 

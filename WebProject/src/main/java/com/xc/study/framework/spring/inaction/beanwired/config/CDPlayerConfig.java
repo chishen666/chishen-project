@@ -1,13 +1,13 @@
-package com.xc.study.framework.spring.inaction.config;
+package com.xc.study.framework.spring.inaction.beanwired.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
-import com.xc.study.framework.spring.inaction.service.CDPlayerService;
-import com.xc.study.framework.spring.inaction.service.CDService;
-import com.xc.study.framework.spring.inaction.service.CarService;
-import com.xc.study.framework.spring.inaction.service.impl.CDPlayerServiceImpl;
+import com.xc.study.framework.spring.inaction.beanwired.service.CDPlayerService;
+import com.xc.study.framework.spring.inaction.beanwired.service.CDService;
+import com.xc.study.framework.spring.inaction.beanwired.service.CarService;
+import com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerServiceImpl;
 
 /**
  * CD Player的java显示配置

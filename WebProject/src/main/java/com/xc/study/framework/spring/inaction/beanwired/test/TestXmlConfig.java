@@ -1,10 +1,10 @@
-package com.xc.study.framework.spring.inaction.test;
+package com.xc.study.framework.spring.inaction.beanwired.test;
 
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.xc.study.framework.spring.inaction.service.CDPlayerService;
-import com.xc.study.framework.spring.inaction.service.KnightService;
+import com.xc.study.framework.spring.inaction.beanwired.service.CDPlayerService;
+import com.xc.study.framework.spring.inaction.beanwired.service.KnightService;
 
 public class TestXmlConfig {
 

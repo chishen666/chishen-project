@@ -1,8 +1,8 @@
-package com.xc.study.framework.spring.inaction.service.impl;
+package com.xc.study.framework.spring.inaction.beanwired.service.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.xc.study.framework.spring.inaction.service.CDService;
+import com.xc.study.framework.spring.inaction.beanwired.service.CDService;
 
 @Component
 public class CDServiceImpl implements CDService {

@@ -13,35 +13,35 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 引入其他配置文件 -->
 	<import resource="classpath:study/car-config.xml" />
-	<!-- <bean class="com.xc.study.framework.spring.inaction.config.CarConfig" /> -->
+	<!-- <bean class="com.xc.study.framework.spring.inaction.beanwired.config.CarConfig" /> -->
 
 	<!-- 注解扫描是针对已经在Spring容器里注册过的Bean -->
 	<context:annotation-config />
 
 	<!-- 不仅具备<context:annotation-config>的所有功能，还可以在指定的package下面扫描对应的bean -->
-	<!-- <context:component-scan base-package="com.xc.study.framework.spring.inaction" 
+	<!-- <context:component-scan base-package="com.xc.study.framework.spring.inaction.beanwired" 
 		/> -->
 
 	<!-- spring实战之骑士测试 -->
 	<bean id="knightService"
-		class="com.xc.study.framework.spring.inaction.service.impl.BraveKnightServiceImpl">
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.BraveKnightServiceImpl">
 		<constructor-arg ref="requestService"></constructor-arg>
 	</bean>
 
 	<bean id="requestService"
-		class="com.xc.study.framework.spring.inaction.service.impl.SlayDragonRequestServiceImpl">
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.SlayDragonRequestServiceImpl">
 		<constructor-arg value="#{T(System).out}"></constructor-arg>
 	</bean>
 
 	<bean id="mistrel"
-		class="com.xc.study.framework.spring.inaction.service.impl.Mistrel">
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.Mistrel">
 		<constructor-arg value="#{T(System).out}"></constructor-arg>
 	</bean>
 
 	<aop:config>
 		<aop:aspect ref="mistrel">
 			<aop:pointcut id="embark"
-				expression="execution(* com.xc.study.framework.spring.inaction.service.impl.BraveKnightServiceImpl.*(..))" />
+				expression="execution(* com.xc.study.framework.spring.inaction.beanwired.service.impl.BraveKnightServiceImpl.*(..))" />
 			<aop:before pointcut-ref="embark" method="singBeforeQuest" />
 			<aop:after pointcut-ref="embark" method="singAfterQuest" />
 		</aop:aspect>
@@ -50,16 +50,16 @@
 	<!-- spring实战之CD测试 -->
 
 	<bean id="cdService"
-		class="com.xc.study.framework.spring.inaction.service.impl.CDServiceImpl"></bean>
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDServiceImpl"></bean>
 
 <!-- 	<bean id="cdPlayerService"
-		class="com.xc.study.framework.spring.inaction.service.impl.CDPlayerServiceImpl">
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerServiceImpl">
 		<property name="cdService" ref="cdService"></property>
 		<property name="carService" ref="carService"></property>
 	</bean> -->
 
 	<bean id="cdPlayerService"
-		class="com.xc.study.framework.spring.inaction.service.impl.CDPlayerServiceImpl" c:carService-ref="carService">
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerServiceImpl" c:carService-ref="carService">
 		<constructor-arg ref="cdService" />
 		<!-- <constructor-arg ref="carService" /> -->
 	</bean>

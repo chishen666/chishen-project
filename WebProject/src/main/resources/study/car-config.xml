@@ -12,8 +12,8 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- spring实战之JavaConfig引用XML配置 -->
-	<!-- <bean id="carService" class="com.xc.study.framework.spring.inaction.service.impl.CarServiceImpl"></bean> -->
-		<bean class="com.xc.study.framework.spring.inaction.config.CarConfig" />
+	<!-- <bean id="carService" class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CarServiceImpl"></bean> -->
+		<bean class="com.xc.study.framework.spring.inaction.beanwired.config.CarConfig" />
 
 
 </beans>

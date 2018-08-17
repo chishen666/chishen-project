@@ -1,4 +1,4 @@
-package com.xc.study.framework.spring.inaction.service;
+package com.xc.study.framework.spring.inaction.beanwired.service;
 
 public interface CDPlayerService {
 	void play();

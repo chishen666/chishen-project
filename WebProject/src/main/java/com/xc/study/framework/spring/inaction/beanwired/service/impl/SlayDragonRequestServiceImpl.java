@@ -1,8 +1,8 @@
-package com.xc.study.framework.spring.inaction.service.impl;
+package com.xc.study.framework.spring.inaction.beanwired.service.impl;
 
 import java.io.PrintStream;
 
-import com.xc.study.framework.spring.inaction.service.RequestService;
+import com.xc.study.framework.spring.inaction.beanwired.service.RequestService;
 
 public class SlayDragonRequestServiceImpl implements RequestService {
 

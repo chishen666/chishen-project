@@ -1,4 +1,4 @@
-package com.xc.study.framework.spring.inaction.config;
+package com.xc.study.framework.spring.inaction.beanwired.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
