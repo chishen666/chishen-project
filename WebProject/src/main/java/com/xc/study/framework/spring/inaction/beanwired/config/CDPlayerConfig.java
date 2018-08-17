@@ -15,7 +15,7 @@ import com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerSer
  *
  */
 @Configuration
-@ImportResource("classpath:study/car-config.xml")
+@ImportResource("classpath:study/spring/inaction/car-config.xml")
 public class CDPlayerConfig {
 
 	@Bean

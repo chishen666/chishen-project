@@ -12,7 +12,7 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 引入其他配置文件 -->
-	<import resource="classpath:study/car-config.xml" />
+	<import resource="classpath:study/spring/inaction/car-config.xml" />
 	<!-- <bean class="com.xc.study.framework.spring.inaction.beanwired.config.CarConfig" /> -->
 
 	<!-- 注解扫描是针对已经在Spring容器里注册过的Bean -->

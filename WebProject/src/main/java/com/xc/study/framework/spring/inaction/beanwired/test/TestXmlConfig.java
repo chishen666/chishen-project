@@ -10,7 +10,8 @@ public class TestXmlConfig {
 
 	@Test
 	public void testKnight() {
-		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("study/inActionApplicationContext.xml");
+		ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(
+				"study/spring/inaction/inActionApplicationContext.xml");
 
 		KnightService ks = ac.getBean("knightService", KnightService.class);
 		ks.embarkOneQuest();
