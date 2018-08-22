@@ -64,7 +64,25 @@
 		<!-- <constructor-arg ref="carService" /> -->
 	</bean>
 
-
+    <!-- spring实战运行时注入1/2~~~~~属性占位符 -->
+    <context:property-placeholder location="classpath:/study/spring/inaction/expression-config.properties"/>
+    
+    <bean id="blankDisc" class="com.xc.study.framework.spring.inaction.advancedwired.service.impl.BlankDisc">
+        <constructor-arg name="title" value="${title}"></constructor-arg>
+        <constructor-arg name="artist" value="${artist}"></constructor-arg>
+    </bean>
+    
+    <!-- spring实战aop测试 -->
+    <bean id="performance" class="com.xc.study.framework.spring.inaction.aop.service.impl.Movie"></bean>
+    
+    <bean id="audience" class="com.xc.study.framework.spring.inaction.aop.advice.Audience"></bean>
+    
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="p1" expression="execution(* com.xc.study.framework.spring.inaction.aop.service.impl.Movie.perform(..))" />
+            <aop:around method="around" pointcut-ref="p1"/>
+        </aop:aspect>
+    </aop:config>
 </beans>
 
 
