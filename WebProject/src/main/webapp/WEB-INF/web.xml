@@ -1,7 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+	<!-- springmvc学习...................................start -->
+
+	<!-- springmvc前端控制器 -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- ContextConfigLocation配置springmvc加载的配置文件(配置处理器映射器,处理器适配器等) 如果不配置,则取WEB-INF下面的springmvc-config.xml -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:study/springmvc/springmvc-config.xml</param-value>
+		</init-param>
+	</servlet>
+	
+	  <!--  
+	<servlet-mapping>
+	   <servlet-name>springmvc</servlet-name>
+	       第一种:*.action,访问.action结尾由前端控制器解析
+	       第二种:/,所有,静态文件需要单独处理,适合restful接口
+	       第三种:/*,不能这样,返回的jsp亦会通过这里
+	   <url-pattern>*.action</url-pattern>
+	</servlet-mapping>
+	   --> 
+	
+
+	<!-- springmvc学习...................................end -->
+
+	<!-- web学习...................................start -->
+
+	<!-- 全局参数 -->
+	<!-- <context-param> <param-name></param-name> <param-value></param-value> 
+		</context-param> -->
+
+	<!-- servlet配置 -->
+	<servlet>
+		<servlet-name>firstServlet</servlet-name>
+		<servlet-class>com.xc.study.web.king.servlet.FirstServlet</servlet-class>
+		<!-- 局部参数 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- 第一次访问加载servlet -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- servlet映射配置 -->
+	<servlet-mapping>
+		<servlet-name>firstServlet</servlet-name>
+		<url-pattern>/king/servlet/first-servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>firstServlet</servlet-name>
+		<url-pattern>/test1/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>firstServlet</servlet-name>
+		<url-pattern>/test2/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- web学习...................................end -->
+
+
+	<!-- 默认访问配置 -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

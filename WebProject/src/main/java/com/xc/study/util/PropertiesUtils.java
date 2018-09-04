@@ -6,12 +6,17 @@ import java.util.Properties;
 
 public class PropertiesUtils {
 
-	private static final Properties p = new Properties();
+	private static final Properties prop = new Properties();
+
+	private static final String PATH = "study/applicationContext.properties";
 
 	static {
-		InputStream in = PropertiesUtils.class.getResourceAsStream("/study/applicationContext.properties");
+		// 第一种，通过类加载器进行获取properties文件流
+		InputStream in = PropertiesUtils.class.getClassLoader().getResourceAsStream(PATH);
+		// 第二种，通过类进行获取properties文件流
+		// InputStream in = PropertiesUtils.class.getResourceAsStream("/" + PATH);
 		try {
-			p.load(in);
+			prop.load(in);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -26,6 +31,6 @@ public class PropertiesUtils {
 	}
 
 	public static String getValue(String key) {
-		return key == null ? "" : p.getProperty(key);
+		return key == null ? "" : prop.getProperty(key);
 	}
 }
