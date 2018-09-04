@@ -1,1 +1,0 @@
-Java中的Set主要有：HashSet、TreeSet、LinkedHashSet。
