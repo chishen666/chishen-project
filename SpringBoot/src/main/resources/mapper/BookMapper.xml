@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.carrx.dao.BookDao">
+	<resultMap id="bookMap" type="com.carrx.bean.po.Book">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="author" property="author" />
+	</resultMap>
+
+	<select id="getBookById" resultType="com.carrx.bean.po.Book">
+		select * from Book where id
+		= #{id}
+	</select>
+
+</mapper>
