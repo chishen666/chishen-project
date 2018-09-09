@@ -1,4 +1,4 @@
-package com.xc.study.web.king.servlet;
+package com.carrx.web.king.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
