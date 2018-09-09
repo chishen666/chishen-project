@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 引入其他配置文件 -->
+	<import
+		resource="classpath:spring/inaction/car-config.xml" />
+	<!-- <bean class="com.xc.study.framework.spring.inaction.beanwired.config.CarConfig" 
+		/> -->
+
+	<!-- 注解扫描是针对已经在Spring容器里注册过的Bean -->
+	<context:annotation-config />
+
+	<!-- 不仅具备<context:annotation-config>的所有功能，还可以在指定的package下面扫描对应的bean -->
+	<!-- <context:component-scan base-package="com.xc.study.framework.spring.inaction.beanwired" 
+		/> -->
+
+	<!-- spring实战之骑士测试 -->
+	<bean id="knightService"
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.BraveKnightServiceImpl">
+		<constructor-arg ref="requestService"></constructor-arg>
+	</bean>
+
+	<bean id="requestService"
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.SlayDragonRequestServiceImpl">
+		<constructor-arg value="#{T(System).out}"></constructor-arg>
+	</bean>
+
+	<bean id="mistrel"
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.Mistrel">
+		<constructor-arg value="#{T(System).out}"></constructor-arg>
+	</bean>
+
+	<aop:config>
+		<aop:aspect ref="mistrel">
+			<aop:pointcut id="embark"
+				expression="execution(* com.xc.study.framework.spring.inaction.beanwired.service.impl.BraveKnightServiceImpl.*(..))" />
+			<aop:before pointcut-ref="embark" method="singBeforeQuest" />
+			<aop:after pointcut-ref="embark" method="singAfterQuest" />
+		</aop:aspect>
+	</aop:config>
+
+	<!-- spring实战之CD测试 -->
+
+	<bean id="cdService"
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDServiceImpl"></bean>
+
+	<!-- <bean id="cdPlayerService" class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerServiceImpl"> 
+		<property name="cdService" ref="cdService"></property> <property name="carService" 
+		ref="carService"></property> </bean> -->
+
+	<bean id="cdPlayerService"
+		class="com.xc.study.framework.spring.inaction.beanwired.service.impl.CDPlayerServiceImpl"
+		c:carService-ref="carService">
+		<constructor-arg ref="cdService" />
+		<!-- <constructor-arg ref="carService" /> -->
+	</bean>
+
+	<!-- spring实战运行时注入1/2~~~~~属性占位符 -->
+	<context:property-placeholder
+		location="classpath:/study/spring/inaction/expression-config.properties" />
+
+	<bean id="blankDisc"
+		class="com.xc.study.framework.spring.inaction.advancedwired.service.impl.BlankDisc">
+		<constructor-arg name="title" value="${title}"></constructor-arg>
+		<constructor-arg name="artist" value="${artist}"></constructor-arg>
+	</bean>
+
+	<!-- spring实战aop测试 -->
+	<bean id="performance"
+		class="com.xc.study.framework.spring.inaction.aop.service.impl.Movie"></bean>
+
+	<bean id="audience"
+		class="com.xc.study.framework.spring.inaction.aop.advice.Audience"></bean>
+
+	<aop:config>
+		<aop:aspect ref="audience">
+			<aop:pointcut id="p1"
+				expression="execution(* com.xc.study.framework.spring.inaction.aop.service.impl.Movie.perform(..))" />
+			<aop:around method="around" pointcut-ref="p1" />
+		</aop:aspect>
+	</aop:config>
+</beans>
+
+
+
+
+
+
+
+
+

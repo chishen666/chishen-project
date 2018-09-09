@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- 注解扫描是针对已经在Spring容器里注册过的Bean -->
+	<!-- <context:annotation-config /> -->
+
+	<!-- 不仅具备<context:annotation-config>的所有功能，还可以在指定的package下面扫描对应的bean -->
+	<context:component-scan
+		base-package="com.xc.study.framework.spring" />
+
+	<!-- spring依赖注入测试 -->
+	<bean id="testController"
+		class="com.xc.study.framework.spring.di.controller.TestController">
+		<!-- <property name="testService" ref="testService"></property> -->
+	</bean>
+	<!-- <bean id="testService" class="com.xc.study.framework.spring.di.service.impl.TestServiceImpl"> 
+		<property name="testDao" ref="testDao"></property> </bean> -->
+	<!-- <bean id="testDao" class="com.xc.study.framework.spring.di.dao.impl.TestDaoImpl" 
+		/> -->
+
+	<!-- spring面向切面编程测试 -->
+	<!-- 1.被切的组件 -->
+	<!-- <bean id="userService" class="com.xc.study.framework.spring.aop.service.impl.UserServiceImpl"></bean> 
+		<bean id="bookService" class="com.xc.study.framework.spring.aop.service.impl.BookServiceImpl"></bean> -->
+
+	<!-- 2.切面的素材 -->
+	<!-- <bean id="logAdvice" class="com.xc.study.framework.spring.aop.advice.LogAdvice"></bean> -->
+
+	<!-- 3.切面配置 -->
+	<!-- <aop:config> <aop:aspect ref="logAdvice"> <aop:before method="logBefore" 
+		pointcut="execution(* com.xc.study.framework.spring.aop.service.impl.*ServiceImpl.*(..))" 
+		/> </aop:aspect> </aop:config> <aop:config> <aop:aspect ref="logAdvice"> 
+		<aop:after method="logAfter" pointcut="execution(* com.xc.study.framework.spring.aop.service.impl.*ServiceImpl.*(..))" 
+		/> </aop:aspect> </aop:config> <aop:config> <aop:aspect ref="logAdvice"> 
+		<aop:after-returning method="logReturning" pointcut="execution(* com.xc.study.framework.spring.aop.service.impl.*ServiceImpl.*(..))" 
+		/> </aop:aspect> </aop:config> <aop:config> <aop:aspect ref="logAdvice"> 
+		<aop:after-throwing method="logThrowing" pointcut="execution(* com.xc.study.framework.spring.aop.service.impl.*ServiceImpl.*(..))" 
+		/> </aop:aspect> </aop:config> <aop:config> <aop:aspect ref="logAdvice"> 
+		<aop:around method="logAround" pointcut="execution(* com.xc.study.framework.spring.aop.service.impl.*ServiceImpl.*(..))" 
+		/> </aop:aspect> </aop:config> -->
+
+</beans>
+
+
+
+
+
+
+
+
+
