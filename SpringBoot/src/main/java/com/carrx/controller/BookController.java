@@ -10,7 +10,7 @@ import com.carrx.bean.po.Book;
 import com.carrx.service.BookService;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class BookController {
 
 	@Autowired
